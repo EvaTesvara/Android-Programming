@@ -10,9 +10,7 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var tv:TextView
-    private lateinit var binding:ActivityMainBinding
-//    private lateinit var binding: Button
-//    private lateinit var binding2: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,23 +25,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val btnImplicit: Button = findViewById(R.id.btn_implicit)
         btnImplicit.setOnClickListener(this)
 
-        //fragment
 
-//        binding = findViewById(R.id.btn_fragment1)
-//        binding2 = findViewById(R.id.btn_fragment2)
-//        binding.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when(v.id){
-//            R.id.btn_fragment1 ->{
-//                var intent = Intent(this@MainActivity,Fragment_1::class.java)
-//                startActivity(intent)
-//            }
-//            R.id.btn_fragment2 ->{
-//                var intent = Intent(this@MainActivity,Fragment_2::class.java)
-//                startActivity(intent)
-//            }
             R.id.btn_implicit -> {
 //                val message = "halo tes"
 //                val intent = Intent()
