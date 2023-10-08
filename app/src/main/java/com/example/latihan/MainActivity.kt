@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import com.example.latihan.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var tv:TextView
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,9 +28,26 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val btnImplicit: Button = findViewById(R.id.btn_implicit)
         btnImplicit.setOnClickListener(this)
 
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnFragment1.setOnClickListener {
+            replaceFragment(Fragment1())
+        }
+
+        binding.btnFragment2.setOnClickListener {
+            replaceFragment(Fragment2())
+        }
+
 
     }
 
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentContainer,fragment)
+        fragmentTransaction.commit()
+    }
     override fun onClick(v: View) {
         when(v.id){
             R.id.btn_implicit -> {
